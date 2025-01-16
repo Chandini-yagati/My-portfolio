@@ -1,0 +1,378 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --hue: 162;
+  --first-color: hsl(var(--hue), 100%, 40%);
+  --first-color-alt: hsl(var(--hue), 56%, 35%);
+  --title-color: hsl(228, 8%, 95%);
+  --text-color: hsl(228, 8%, 65%);
+  --body-color: hsl(228, 15%, 20%);
+  --container-color: hsl(228, 15%, 15%);
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --bigger-font-size: 2rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+button,
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--first-color);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 2rem;
+}
+
+.section__title, 
+.section__subtitle {
+  text-align: center;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.section__subtitle span {
+  color: var(--first-color);
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__list {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav__link {
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+/*=============== HOME ===============*/
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  background-color: var(--container-color);
+}
+
+.home__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home__content {
+  max-width: 540px;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  color: var(--title-color);
+  margin-bottom: .5rem;
+}
+
+.home__description {
+  font-size: var(--h2-font-size);
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.home__img img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+/*=============== BUTTON ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  padding: .75rem 1.5rem;
+  border-radius: .5rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  transition: background-color .3s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+}
+
+/*=============== ABOUT ===============*/
+.about__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about__img img {
+  width: 400px;
+  border-radius: .5rem;
+}
+
+.about__data {
+  max-width: 540px;
+}
+
+.about__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+/*=============== SERVICES ===============*/
+.services__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.service__content {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--container-color);
+  border-radius: .5rem;
+  transition: transform 0.3s;
+}
+
+.service__content:hover {
+  transform: translateY(-10px);
+}
+
+.service__icon {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+.service__title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: .5rem;
+}
+
+.service__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+/*=============== PROJECTS ===============*/
+.projects__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project__content {
+  background-color: var(--container-color);
+  border-radius: .5rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.project__content:hover {
+  transform: translateY(-10px);
+}
+
+.project__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin: .5rem 0;
+}
+
+.project__link {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.project__link:hover {
+  color: var(--first-color-alt);
+}
+
+/*=============== CONTACT ===============*/
+.contact__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact__form {
+  width: 100%;
+  max-width: 540px;
+}
+
+.contact__inputs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact__input {
+  width: 100%;
+  padding: .75rem;
+  background-color: var(--container-color);
+  border-radius: .5rem;
+  color: var(--title-color);
+  transition: outline 0.3s;
+}
+
+.contact__input::
